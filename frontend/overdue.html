@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdue Books - College Library Management System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <a href="dashboard.html" class="sidebar-brand">
+                <i class="bi bi-book-half fs-4 text-primary"></i>
+                <span>College Library</span>
+            </a>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                <li><a href="books.html"><i class="bi bi-journal-text"></i> Books</a></li>
+                <li><a href="students.html"><i class="bi bi-people"></i> Students</a></li>
+                <li><a href="issues.html"><i class="bi bi-box-arrow-up-right"></i> Issue Book</a></li>
+                <li><a href="returns.html"><i class="bi bi-arrow-return-left"></i> Returns</a></li>
+                <li><a href="overdue.html" class="active"><i class="bi bi-exclamation-triangle"></i> Overdue Books</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div>Academic Project v1.0</div>
+                <small class="text-secondary">Naan Mudhalvan</small>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <h1 class="page-title">Overdue Books</h1>
+                <div class="badge bg-primary px-3 py-2">College Library Management System</div>
+            </header>
+
+            <div class="content-body">
+
+                <!-- Alert Area -->
+                <div id="alertArea"></div>
+
+                <!-- Summary Banner -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card border-danger">
+                            <div class="card-body d-flex align-items-center gap-3">
+                                <i class="bi bi-exclamation-triangle-fill text-danger fs-1"></i>
+                                <div>
+                                    <div class="text-muted small">Currently Overdue</div>
+                                    <div class="fs-3 fw-bold text-danger" id="overdueCount">—</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-warning">
+                            <div class="card-body d-flex align-items-center gap-3">
+                                <i class="bi bi-currency-rupee text-warning fs-1"></i>
+                                <div>
+                                    <div class="text-muted small">Total Accumulated Fine</div>
+                                    <div class="fs-3 fw-bold text-warning" id="totalFine">—</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-info">
+                            <div class="card-body d-flex align-items-center gap-3">
+                                <i class="bi bi-calendar-x text-info fs-1"></i>
+                                <div>
+                                    <div class="text-muted small">Fine Rate</div>
+                                    <div class="fs-3 fw-bold text-info">₹5 / day</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="card mb-3">
+                    <div class="card-body py-2">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" id="searchInput"
+                                   placeholder="Search by book title, ISBN, student name, issue ID…">
+                            <button class="btn btn-outline-secondary" onclick="clearSearch()">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overdue Table -->
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>
+                            <i class="bi bi-exclamation-circle text-danger me-1"></i>
+                            <strong>Overdue Issue Records</strong>
+                        </span>
+                        <span class="badge bg-danger" id="tableCount">Loading…</span>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Issue ID</th>
+                                        <th>Book</th>
+                                        <th>ISBN</th>
+                                        <th>Student</th>
+                                        <th>Issue Date</th>
+                                        <th>Due Date</th>
+                                        <th>Overdue Days</th>
+                                        <th>Fine</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="overdueTableBody">
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted py-4">
+                                            <i class="bi bi-hourglass-split me-2"></i>Loading overdue records…
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.content-body -->
+        </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/overdue.js"></script>
+</body>
+</html>

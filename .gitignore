@@ -1,0 +1,38 @@
+# ── Java / Maven ──────────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# ── Maven wrapper ─────────────────────────────────────────────────
+.mvn/wrapper/maven-wrapper.jar
+
+# ── IDEs ──────────────────────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# ── Spring Boot / Runtime ─────────────────────────────────────────
+*.log
+logs/
+
+# ── Environment / Secrets (never commit real credentials) ─────────
+.env
+.env.local
+*.secret
+secrets/
+
+# ── Node (not used, but safety net) ──────────────────────────────
+node_modules/
